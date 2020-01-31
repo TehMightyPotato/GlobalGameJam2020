@@ -47,15 +47,4 @@ public class Grid
         if (CellHasContent(gridPos + new Vector2Int(0, 1))) return true;
         return false;
     }
-
-    public void PopulateGrid()
-    {
-        for (int x = -1; x < 2; x++)
-        {
-            for (int y = -1; y < 2; y++)
-            {
-                GetCell(new Vector2Int(x, y));
-            }
-        }
-    }
 }
