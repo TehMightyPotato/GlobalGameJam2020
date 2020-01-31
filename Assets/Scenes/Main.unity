@@ -153,6 +153,8 @@ MonoBehaviour:
   grid:
     gridXSize: 100
     gridYSize: 100
+  prefab: {fileID: 4784090673818098250, guid: 27abd79dbe9578c48afde87671ce3008, type: 3}
+  blueprint: {fileID: 11400000, guid: 653f76c14f3dbf8469203d3d58b9b930, type: 2}
 --- !u!4 &275829479
 Transform:
   m_ObjectHideFlags: 0

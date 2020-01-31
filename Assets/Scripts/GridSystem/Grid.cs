@@ -20,14 +20,41 @@ public class Grid
         return new Vector2Int(Mathf.FloorToInt(worldPos.x), Mathf.FloorToInt(worldPos.z));
     }
 
+    public Cell GetCell(Vector2Int gridPos)
+    {
+        if (!gridDict.ContainsKey(gridPos))
+        {
+            gridDict[gridPos] = new Cell(gridPos, GetCellWorldCoords(gridPos));
+        }
+        return gridDict[gridPos];
+    }
+
+    public bool CellHasContent(Vector2Int gridPos)
+    {
+        return GetCell(gridPos).content ? true : false;
+    }
+
+    public void CellSetContent(Vector2Int gridPos, GameObject content)
+    {
+        GetCell(gridPos).content = content;
+    }
+
+    public bool CellHasNeighbour(Vector2Int gridPos)
+    {
+        if (CellHasContent(gridPos + new Vector2Int(-1, 0))) return true;
+        if (CellHasContent(gridPos + new Vector2Int(1, 0))) return true;
+        if (CellHasContent(gridPos + new Vector2Int(0, -1))) return true;
+        if (CellHasContent(gridPos + new Vector2Int(0, 1))) return true;
+        return false;
+    }
+
     public void PopulateGrid()
     {
-        for(int x = 0; x < gridXSize; x++)
+        for (int x = -1; x < 2; x++)
         {
-            for(int y = 0; y < gridYSize; y++)
+            for (int y = -1; y < 2; y++)
             {
-                var vec = new Vector2Int(x, y);
-                gridDict[vec] = new Cell(vec);
+                GetCell(new Vector2Int(x, y));
             }
         }
     }
