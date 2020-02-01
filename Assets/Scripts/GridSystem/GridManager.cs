@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GridManager : MonoBehaviour
 {
@@ -9,25 +10,6 @@ public class GridManager : MonoBehaviour
     private Grid grid;
     public GameObject prefab;
     public BasicBuilding blueprint;
-
-    private static GridManager _instance;
-
-    public static GridManager Instance
-    {
-        get { return _instance; }
-    }
-
-    private void Awake()
-    {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            _instance = this;
-        }
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -38,14 +20,7 @@ public class GridManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButton("Fire1"))
-        {
-            var ray = mainCam.ScreenPointToRay(Input.mousePosition);
-            Physics.Raycast(ray, out var hitInfo, LayerMask.GetMask("BackgroundPlane"));
-            var coords = grid.GetCellGridCoords(hitInfo.point);
-            if (!CellCheckPlaceablility(coords)) return;
-            PlaceBuilding(blueprint, coords);
-        }
+
     }
 
     public void PopulateGrid()
@@ -67,14 +42,20 @@ public class GridManager : MonoBehaviour
         cell.SetContent(obj);
     }
 
-    public void SelectBuilding(BasicBuilding blueprint)
+    public void PlaceBuilding(BasicBuilding blueprint, Vector3 position)
     {
-        this.blueprint = blueprint;
+        var coords = grid.GetCellGridCoords(position);
+        PlaceBuilding(blueprint, coords);
     }
 
     public bool CellCheckPlaceablility(Vector2Int position)
     {
         return grid.CellHasNeighbour(position) && !grid.CellHasContent(position);
+    }
+
+    public bool CellCheckPlaceablility(Vector3 position)
+    {
+        return CellCheckPlaceablility(grid.GetCellGridCoords(position));
     }
 
     private void OnDrawGizmos()

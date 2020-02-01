@@ -7,15 +7,22 @@ public class UIBuildingMenuButtonLoader : MonoBehaviour
 {
     public BasicBuilding buildingBlueprint;
     public Image buttonImage;
+    public Button button;
 
     public void Init(BasicBuilding building)
     {
         buildingBlueprint = building;
         buttonImage.sprite = building.buildingIcon;
+        PartManager.Instance.OnPartsChanged += OnPartsChanged;
     }
 
     public void OnButtonClick()
     {
-        GridManager.Instance.SelectBuilding(buildingBlueprint);
+        BuildingManager.Instance.ChooseBlueprint(buildingBlueprint);
+    }
+
+    public void OnPartsChanged(object sender, PartsChangedArgs args)
+    {
+        button.interactable = PartManager.Instance.HasRequiredParts(buildingBlueprint.cost);
     }
 }

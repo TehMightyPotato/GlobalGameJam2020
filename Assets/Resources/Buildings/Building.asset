@@ -17,4 +17,4 @@ MonoBehaviour:
   mesh: {fileID: -4207443722817456029, guid: e7ab88490852263448a3ff46f8f4ea12, type: 3}
   material: {fileID: 2100000, guid: 888d138cea0c9e6419c5bec18d70b3bb, type: 2}
   cost: []
-  buildingType: 1
+  buildingType: 0

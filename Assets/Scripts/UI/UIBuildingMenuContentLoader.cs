@@ -8,7 +8,7 @@ public class UIBuildingMenuContentLoader : MonoBehaviour
     public GameObject elementPrefab;
     public Dictionary<BuildingType, List<BasicBuilding>> blueprintDict = new Dictionary<BuildingType, List<BasicBuilding>>();
 
-    private void Start()
+    public void Init()
     {
         var blueprints = Resources.LoadAll<BasicBuilding>("Buildings/");
 
