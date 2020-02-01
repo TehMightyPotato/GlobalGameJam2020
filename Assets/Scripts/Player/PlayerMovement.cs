@@ -9,8 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private MoveSettings usedSettings;
     public Rigidbody rigidBody;
-
-    private Vector2 input;
+    public Rope rope;
 
     private void Start()
     {
@@ -27,11 +26,13 @@ public class PlayerMovement : MonoBehaviour
             if(usedSettings != stationMoveSettings)
             {
                 usedSettings = stationMoveSettings;
+                rope.SetActive(false);
             }
         }
         else if(usedSettings != spaceMoveSettings)
         {
             usedSettings = spaceMoveSettings;
+            rope.SetActive(true);
         }  
     }
 

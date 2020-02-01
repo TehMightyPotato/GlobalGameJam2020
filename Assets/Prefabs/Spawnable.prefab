@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6031678815274769583}
   m_Layer: 0
   m_Name: Spawnable
-  m_TagString: Untagged
+  m_TagString: Spawnable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,4 +127,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blueprint: {fileID: 11400000, guid: 78caf0d8c1385804bbf3ae0d3493c58f, type: 2}
   renderer: {fileID: 6031678815274769581}
-  rotateSpeed: 2
+  rigidBody: {fileID: 6031678815274769578}
+  rotateSpeed: 3
+  maxDistanceFromZero: 400

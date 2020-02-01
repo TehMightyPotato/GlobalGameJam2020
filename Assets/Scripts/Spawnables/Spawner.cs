@@ -37,9 +37,9 @@ public class Spawner : MonoBehaviour
             }
         }
 
-        innerSphere.Init(spawnablePrefab,transform,player,spawnHeight,innerLootTable);
-        middleSphere.Init(spawnablePrefab,transform, player, spawnHeight, middleLootTable);
-        outerSphere.Init(spawnablePrefab, transform, player, spawnHeight, outerLootTable);
+        innerSphere.Init(spawnablePrefab,transform,player,spawnHeight,innerLootTable, minDistanceToPlayer);
+        middleSphere.Init(spawnablePrefab,transform, player, spawnHeight, middleLootTable, minDistanceToPlayer);
+        outerSphere.Init(spawnablePrefab, transform, player, spawnHeight, outerLootTable, minDistanceToPlayer);
     }
 
     private void FixedUpdate()
@@ -64,13 +64,14 @@ public class Sphere
     private Transform parent;
     private Transform playerTrans;
 
-    public void Init(GameObject spawnablePrefab, Transform parent, Transform playerTrans, float spawnHeight, List<BasicSpawnable> spawnTable)
+    public void Init(GameObject spawnablePrefab, Transform parent, Transform playerTrans, float spawnHeight, List<BasicSpawnable> spawnTable, float minDistanceToPlayer)
     {
         this.spawnablePrefab = spawnablePrefab;
         this.parent = parent;
         this.playerTrans = playerTrans;
         this.spawnHeight = spawnHeight;
         this.spawnTable = spawnTable;
+        this.minDistanceToPlayer = minDistanceToPlayer;
     }
 
     public void SpawnObject()
@@ -78,7 +79,7 @@ public class Sphere
         if(objectList.Count <= maxObjectCount)
         {
             var obj = GameObject.Instantiate(spawnablePrefab, GetRandomPosition(), Quaternion.identity, parent);
-            obj.GetComponent<Spawnable>().Init(GetRandomBlueprint());
+            obj.GetComponent<Spawnable>().Init(GetRandomBlueprint(), this);
             objectList.Add(obj);
         }
     }
