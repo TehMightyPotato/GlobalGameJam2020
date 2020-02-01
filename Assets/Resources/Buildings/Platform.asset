@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77b3a98c42ff2a4da2f1eca6d45d7d6, type: 3}
+  m_Name: Platform
+  m_EditorClassIdentifier: 
+  buildingName: Platform
+  buildingIcon: {fileID: 21300000, guid: 62217cca6cf05ee4ea31531d4b5baf67, type: 3}
+  mesh: {fileID: 1149973307703454695, guid: e7ab88490852263448a3ff46f8f4ea12, type: 3}
+  material: {fileID: 2100000, guid: eef7cd3be61a7c9408db3146c9a18871, type: 2}
+  cost:
+  - part: {fileID: 11400000, guid: 175376d17c8701e4dbd8654e13183c5d, type: 2}
+    ammount: 3
+  buildingType: 0

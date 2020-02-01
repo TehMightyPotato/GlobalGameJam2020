@@ -6,9 +6,6 @@ using UnityEngine;
 public class Grid
 {
     public Dictionary<Vector2Int, Cell> gridDict = new Dictionary<Vector2Int, Cell>();
-    public int gridXSize = 100;
-    public int gridYSize = 100;
-
 
     public Vector3 GetCellWorldCoords(Vector2Int gridPos)
     {
@@ -20,15 +17,31 @@ public class Grid
         return new Vector2Int(Mathf.FloorToInt(worldPos.x), Mathf.FloorToInt(worldPos.z));
     }
 
-    public void PopulateGrid()
+    public Cell GetCell(Vector2Int gridPos)
     {
-        for(int x = 0; x < gridXSize; x++)
+        if (!gridDict.ContainsKey(gridPos))
         {
-            for(int y = 0; y < gridYSize; y++)
-            {
-                var vec = new Vector2Int(x, y);
-                gridDict[vec] = new Cell(vec);
-            }
+            gridDict[gridPos] = new Cell(gridPos, GetCellWorldCoords(gridPos));
         }
+        return gridDict[gridPos];
+    }
+
+    public bool CellHasContent(Vector2Int gridPos)
+    {
+        return GetCell(gridPos).content ? true : false;
+    }
+
+    public void CellSetContent(Vector2Int gridPos, GameObject content)
+    {
+        GetCell(gridPos).content = content;
+    }
+
+    public bool CellHasNeighbour(Vector2Int gridPos)
+    {
+        if (CellHasContent(gridPos + new Vector2Int(-1, 0))) return true;
+        if (CellHasContent(gridPos + new Vector2Int(1, 0))) return true;
+        if (CellHasContent(gridPos + new Vector2Int(0, -1))) return true;
+        if (CellHasContent(gridPos + new Vector2Int(0, 1))) return true;
+        return false;
     }
 }
