@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-    public Grid grid;
+    public Camera mainCam;
+    private Grid grid;
     public GameObject prefab;
     public BasicBuilding blueprint;
 
@@ -20,7 +21,7 @@ public class GridManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            var ray = mainCam.ScreenPointToRay(Input.mousePosition);
             Physics.Raycast(ray, out var hitInfo, LayerMask.GetMask("BackgroundPlane"));
             var coords = grid.GetCellGridCoords(hitInfo.point);
             if (!CellCheckPlaceablility(coords)) return;

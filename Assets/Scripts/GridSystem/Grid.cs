@@ -6,9 +6,6 @@ using UnityEngine;
 public class Grid
 {
     public Dictionary<Vector2Int, Cell> gridDict = new Dictionary<Vector2Int, Cell>();
-    public int gridXSize = 100;
-    public int gridYSize = 100;
-
 
     public Vector3 GetCellWorldCoords(Vector2Int gridPos)
     {

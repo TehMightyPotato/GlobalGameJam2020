@@ -10,7 +10,7 @@ public class BasicBuilding : ScriptableObject
     public Mesh mesh;
     public Material material;
     public Cost[] cost;
-
+    public BuildingType buildingType;
 }
 
 [System.Serializable]
@@ -18,5 +18,12 @@ public struct Cost
 {
     public BasicPart part;
     public int ammount;
+}
+
+[System.Serializable]
+public enum BuildingType
+{
+    Platform,
+    Machine
 }
 
