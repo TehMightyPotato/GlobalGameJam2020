@@ -17,19 +17,11 @@ public class PlayerMovement : MonoBehaviour
         usedSettings = stationMoveSettings;
     }
 
-    void Update()
-    {
-        CheckForGround();
-        input = RotateVector(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));
-        //welcher ground ist drunter
-    }
-
     private void CheckForGround()
     {
         var ray = new Ray(transform.position, Vector3.down);
         Debug.DrawRay(ray.origin, ray.direction);
         var rayHit = Physics.Raycast(ray, 10f, LayerMask.GetMask("Default"));
-        Debug.Log(rayHit);
         if (rayHit)
         {
             if(usedSettings != stationMoveSettings)
@@ -40,8 +32,7 @@ public class PlayerMovement : MonoBehaviour
         else if(usedSettings != spaceMoveSettings)
         {
             usedSettings = spaceMoveSettings;
-        }
-        
+        }  
     }
 
     private Vector2 RotateVector(Vector2 vec)
@@ -53,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        usedSettings.Move(rigidBody, input);
+        CheckForGround();
+        usedSettings.Move(rigidBody, RotateVector(InputManager.Instance.MovementInput));
     }
 }

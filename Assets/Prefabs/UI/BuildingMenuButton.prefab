@@ -165,6 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingBlueprint: {fileID: 0}
   buttonImage: {fileID: 494910885419070798}
+  button: {fileID: 726880748843962112}
 --- !u!1 &6417023809208671293
 GameObject:
   m_ObjectHideFlags: 0
