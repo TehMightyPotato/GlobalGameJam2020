@@ -18,5 +18,5 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: eef7cd3be61a7c9408db3146c9a18871, type: 2}
   cost:
   - part: {fileID: 11400000, guid: 175376d17c8701e4dbd8654e13183c5d, type: 2}
-    ammount: 5
+    ammount: 1
   buildingType: 0

@@ -10,18 +10,23 @@ public class PartManager : Singleton<PartManager>
     {
         OnPartsChanged?.Invoke(sender, new PartsChangedArgs(inventory));
     }
-
+    public Dictionary<string, BasicPart> partLookupDict;
     public Dictionary<string, int> inventory = new Dictionary<string, int>();
 
 
     private void Start()
     {
+        partLookupDict = new Dictionary<string, BasicPart>();
+        foreach(var part in Resources.LoadAll<BasicPart>("Parts/"))
+        {
+            partLookupDict.Add(part.partName, part);
+        }
         ChangePartCount("Metal", 4);
+        ChangePartCount("Energy", 10);
     }
 
     public int GetPartCount(string partName)
     {
-
         if (inventory.ContainsKey(partName))
         {
             return inventory[partName];
