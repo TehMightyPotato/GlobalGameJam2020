@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5f8385cdc726046a84c71d3ed3c6a9, type: 3}
   m_Name: SpaceMoveSettings
   m_EditorClassIdentifier: 
-  forceMultiplier: 0.2
+  forceMultiplier: 0.07
