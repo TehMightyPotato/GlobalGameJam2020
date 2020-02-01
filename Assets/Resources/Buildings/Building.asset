@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77b3a98c42ff2a4da2f1eca6d45d7d6, type: 3}
   m_Name: Building
   m_EditorClassIdentifier: 
-  buildingName: 
-  buildingIcon: {fileID: 0}
-  mesh: {fileID: 0}
-  material: {fileID: 0}
+  buildingName: Block
+  buildingIcon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  mesh: {fileID: -4207443722817456029, guid: e7ab88490852263448a3ff46f8f4ea12, type: 3}
+  material: {fileID: 2100000, guid: 888d138cea0c9e6419c5bec18d70b3bb, type: 2}
   cost: []
-  buildingType: 0
+  buildingType: 1

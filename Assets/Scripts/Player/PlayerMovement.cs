@@ -28,9 +28,14 @@ public class PlayerMovement : MonoBehaviour
     {
         var ray = new Ray(transform.position, Vector3.down);
         Debug.DrawRay(ray.origin, ray.direction);
-        if(Physics.Raycast(ray, 10f,LayerMask.GetMask("Default")) && usedSettings != stationMoveSettings)
+        var rayHit = Physics.Raycast(ray, 10f, LayerMask.GetMask("Default"));
+        Debug.Log(rayHit);
+        if (rayHit)
         {
-            usedSettings = stationMoveSettings;
+            if(usedSettings != stationMoveSettings)
+            {
+                usedSettings = stationMoveSettings;
+            }
         }
         else if(usedSettings != spaceMoveSettings)
         {
