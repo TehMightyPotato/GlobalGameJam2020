@@ -24,7 +24,7 @@ public class UIBuildingMenuContentLoader : MonoBehaviour
         {
             var list = blueprintDict[key];
             var obj = Instantiate(elementPrefab, transform);
-            obj.GetComponent<UIElementLoader>().Init(list,key.ToString("g"));
+            obj.GetComponent<UIBuildingMenuLoader>().Init(list,key.ToString("g"));
         }
     }
 }
