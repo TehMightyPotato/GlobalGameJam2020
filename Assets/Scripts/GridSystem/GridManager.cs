@@ -10,6 +10,25 @@ public class GridManager : MonoBehaviour
     public GameObject prefab;
     public BasicBuilding blueprint;
 
+    private static GridManager _instance;
+
+    public static GridManager Instance
+    {
+        get { return _instance; }
+    }
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +38,7 @@ public class GridManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
             var ray = mainCam.ScreenPointToRay(Input.mousePosition);
             Physics.Raycast(ray, out var hitInfo, LayerMask.GetMask("BackgroundPlane"));
@@ -46,6 +65,11 @@ public class GridManager : MonoBehaviour
         var obj = GameObject.Instantiate(prefab);
         obj.GetComponent<BuildingLoader>().Init(blueprint);
         cell.SetContent(obj);
+    }
+
+    public void SelectBuilding(BasicBuilding blueprint)
+    {
+        this.blueprint = blueprint;
     }
 
     public bool CellCheckPlaceablility(Vector2Int position)

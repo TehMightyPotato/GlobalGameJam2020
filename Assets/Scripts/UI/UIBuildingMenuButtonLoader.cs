@@ -16,6 +16,6 @@ public class UIBuildingMenuButtonLoader : MonoBehaviour
 
     public void OnButtonClick()
     {
-        //do stuff
+        GridManager.Instance.SelectBuilding(buildingBlueprint);
     }
 }
