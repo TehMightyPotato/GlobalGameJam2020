@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52b4bbf9e185d9448aa05d13bd527d57, type: 3}
+  m_Name: AsFaE6
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  spawnRegion: 2
+  rewards:
+  - chance: 82
+    rewards:
+    - part: {fileID: 11400000, guid: 175376d17c8701e4dbd8654e13183c5d, type: 2}
+      ammount: 2
+    - part: {fileID: 11400000, guid: 5fdfd6565bc8e8f4e9292c605f8a4c5e, type: 2}
+      ammount: 4
+  - chance: 63
+    rewards:
+    - part: {fileID: 11400000, guid: 175376d17c8701e4dbd8654e13183c5d, type: 2}
+      ammount: 3
+    - part: {fileID: 11400000, guid: 5fdfd6565bc8e8f4e9292c605f8a4c5e, type: 2}
+      ammount: 5
+  - chance: 25
+    rewards:
+    - part: {fileID: 11400000, guid: 175376d17c8701e4dbd8654e13183c5d, type: 2}
+      ammount: 4
+    - part: {fileID: 11400000, guid: 5fdfd6565bc8e8f4e9292c605f8a4c5e, type: 2}
+      ammount: 7

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039ead4ad0442c347b0bf88f7b8f606c, type: 3}
   m_Name: StationMoveSettings
   m_EditorClassIdentifier: 
-  forceMultiplier: 0.4
-  dragMultiplier: 0.2
-  maxVelocity: 6
+  forceMultiplier: 0.2
+  dragMultiplier: 0.5
+  maxVelocity: 3
