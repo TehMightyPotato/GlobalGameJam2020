@@ -18,13 +18,13 @@ MonoBehaviour:
   rewards:
   - chance: 82
     rewards:
-    - part: {fileID: 11400000, guid: 175376d17c8701e4dbd8654e13183c5d, type: 2}
+    - part: {fileID: 11400000, guid: 9cf80e6bd4af10649b6e4d41a2ac3dc3, type: 2}
       ammount: 2
     - part: {fileID: 11400000, guid: 5fdfd6565bc8e8f4e9292c605f8a4c5e, type: 2}
       ammount: 4
   - chance: 53
     rewards:
-    - part: {fileID: 11400000, guid: 175376d17c8701e4dbd8654e13183c5d, type: 2}
+    - part: {fileID: 11400000, guid: 9cf80e6bd4af10649b6e4d41a2ac3dc3, type: 2}
       ammount: 3
     - part: {fileID: 11400000, guid: 5fdfd6565bc8e8f4e9292c605f8a4c5e, type: 2}
       ammount: 5
@@ -32,8 +32,8 @@ MonoBehaviour:
       ammount: 1
   - chance: 25
     rewards:
-    - part: {fileID: 11400000, guid: 175376d17c8701e4dbd8654e13183c5d, type: 2}
-      ammount: 4
+    - part: {fileID: 11400000, guid: 9cf80e6bd4af10649b6e4d41a2ac3dc3, type: 2}
+      ammount: 5
     - part: {fileID: 11400000, guid: 5fdfd6565bc8e8f4e9292c605f8a4c5e, type: 2}
       ammount: 7
     - part: {fileID: 11400000, guid: 67dc0b25d92075146aa6380dd121a972, type: 2}
