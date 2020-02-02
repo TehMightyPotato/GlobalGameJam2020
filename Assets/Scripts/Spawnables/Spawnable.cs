@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Spawnable : MonoBehaviour
 {
+    [Range(0,100)]
+    public int shoutOutChance;
+    [Range(0,1)]
+    public float soundVolume;
     public BasicSpawnable blueprint;
     new public SpriteRenderer renderer;
     public Rigidbody rigidBody;
@@ -60,6 +64,15 @@ public class Spawnable : MonoBehaviour
     {
         blueprint.OnCollect();
         sphere.RemoveObjectFromList(gameObject);
+        var rng = Random.Range(1, 101);
+        if(rng <= shoutOutChance)
+        {
+            SoundManager.Instance.PlayRandomShoutout();
+        }
+        SoundManager.Instance.PlayAudioClip("Abbauen",soundVolume);
+        rigidBody.isKinematic = true;
+        gameObject.GetComponent<Collider>().enabled = false;
+        yield return new WaitForSeconds(1);
         Destroy(gameObject);
         yield break;
     }

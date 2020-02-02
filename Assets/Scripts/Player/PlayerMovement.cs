@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public MoveSettings spaceMoveSettings;
     public MoveSettings stationMoveSettings;
 
+    public Animator anim;
+
     [SerializeField] private MoveSettings usedSettings;
     public Rigidbody rigidBody;
     public Rope rope;
@@ -14,6 +16,10 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         usedSettings = stationMoveSettings;
+    }
+
+    public void Update(){
+        anim.SetBool("Walk", InputManager.Instance.MovementInput.magnitude > 0.5f && usedSettings == stationMoveSettings);
     }
 
     private void CheckForGround()

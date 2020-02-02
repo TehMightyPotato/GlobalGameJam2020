@@ -30,7 +30,12 @@ public class Grid
     {
         if (gridDict.ContainsKey(position))
         {
-            GameObject.Destroy(gridDict[position].content);
+            var content = gridDict[position].content;
+            if (content != null)
+            {
+                SoundManager.Instance.PlayAudioClip("Bauelement", 1);
+            }
+            GameObject.Destroy(content);
             gridDict.Remove(position);
         }
     }

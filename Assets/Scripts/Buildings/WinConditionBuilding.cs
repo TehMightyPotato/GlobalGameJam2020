@@ -13,7 +13,10 @@ public class WinConditionBuilding : BasicBuilding
 
     public override void OnBeforeDestroy()
     {
-        GameManager.Instance.SetWinCondition(-1, condition);
+        if(GameManager.Instance != null)
+        {
+            GameManager.Instance.SetWinCondition(-1, condition);
+        }
     }
 }
 

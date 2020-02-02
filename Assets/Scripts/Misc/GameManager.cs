@@ -47,6 +47,36 @@ public class GameManager : Singleton<GameManager>
 
     public IEnumerator WinRoutine()
     {
+        while (SoundManager.Instance.IsPlaying())
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        yield return new WaitForSeconds(1);
+        SoundManager.Instance.PlayAudioClip("win1", 1);
+        while (SoundManager.Instance.IsPlaying())
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        yield return new WaitForSeconds(1);
+        SoundManager.Instance.PlayAudioClip("win2", 1);
+        while (SoundManager.Instance.IsPlaying())
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        yield return new WaitForSeconds(2);
+        SoundManager.Instance.PlayAudioClip("credit1", 1);
+        while (SoundManager.Instance.IsPlaying())
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        yield return new WaitForSeconds(1);
+        SoundManager.Instance.PlayAudioClip("credit2", 1);
+        while (SoundManager.Instance.IsPlaying())
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        yield return new WaitForSeconds(1);
+        SoundManager.Instance.PlayAudioClip("credit3", 1);
         yield break;
     }
 

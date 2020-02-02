@@ -23,7 +23,7 @@ public class Rope : MonoBehaviour
 
     private void Update()
     {
-        lRenderer.SetPosition(1, transform.position);
+        lRenderer.SetPosition(1, transform.position + Vector3.down);
     }
 
     public void SetActive(bool val)
@@ -32,7 +32,7 @@ public class Rope : MonoBehaviour
         {
             connectionPoint = transform.position + Vector3.down;
             lRenderer.SetPosition(0, connectionPoint);
-            lRenderer.SetPosition(1, transform.position);
+            lRenderer.SetPosition(1, transform.position + Vector3.down);
             temporaryRopeLenght = ropeLength;
         }
         lRenderer.enabled = val;

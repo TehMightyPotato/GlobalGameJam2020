@@ -125,6 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa22e3c68df1f04db31d8e3f68298b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shoutOutChance: 44
+  soundVolume: 1
   blueprint: {fileID: 11400000, guid: 78caf0d8c1385804bbf3ae0d3493c58f, type: 2}
   renderer: {fileID: 6031678815274769581}
   rigidBody: {fileID: 6031678815274769578}

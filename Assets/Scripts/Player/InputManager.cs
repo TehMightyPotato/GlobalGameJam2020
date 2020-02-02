@@ -52,6 +52,18 @@ public class InputManager : Singleton<InputManager>
             Physics.Raycast(ray, out var hitInfo, LayerMask.GetMask("BackgroundPlane"));
             _mousePosition = hitInfo.point;
         }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            foreach(var part in PartManager.Instance.partLookupDict.Keys)
+            {
+                PartManager.Instance.maxEnergy = 9999;
+                PartManager.Instance.ChangePartCount(part, 9999);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         switch (inputState)
         {
             case InputState.Building:
@@ -66,6 +78,7 @@ public class InputManager : Singleton<InputManager>
                 if (Input.GetButtonDown("BuildingMode"))
                 {
                     ChangeInputState(InputState.Playing);
+
                     TooltipManager.Instance.PurgeList();
                 }
                 break;

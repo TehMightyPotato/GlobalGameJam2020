@@ -7,6 +7,8 @@ public class BuildingManager : Singleton<BuildingManager>
 {
     public GridManager gridManager;
     public BasicBuilding selectedBlueprint;
+    [Range(0,1)]
+    public float soundVolume;
 
     public void ChooseBlueprint(BasicBuilding blueprint)
     {
@@ -21,6 +23,7 @@ public class BuildingManager : Singleton<BuildingManager>
             {
                 PartManager.Instance.SubractCost(blueprint.cost);
             }
+            SoundManager.Instance.PlayAudioClip("Bauelement", soundVolume);
             gridManager.PlaceBuilding(blueprint, position);
         }
     }
