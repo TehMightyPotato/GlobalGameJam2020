@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,5 +28,10 @@ public class BuildingManager : Singleton<BuildingManager>
     public void Build(Vector3 position)
     {
         Build(selectedBlueprint, position);
+    }
+
+    public void DestroyBuilding(Vector3 mousePosition)
+    {
+        gridManager.DestroyBuilding(mousePosition);
     }
 }

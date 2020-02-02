@@ -9,8 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private MoveSettings usedSettings;
     public Rigidbody rigidBody;
-
-    private Vector2 input;
+    public Rope rope;
 
     private void Start()
     {
@@ -27,11 +26,15 @@ public class PlayerMovement : MonoBehaviour
             if(usedSettings != stationMoveSettings)
             {
                 usedSettings = stationMoveSettings;
+                GameManager.Instance.PlayerLocationChanged(this, true);
+                rope.SetActive(false);
             }
         }
         else if(usedSettings != spaceMoveSettings)
         {
             usedSettings = spaceMoveSettings;
+            GameManager.Instance.PlayerLocationChanged(this, false);
+            rope.SetActive(true);
         }  
     }
 
@@ -42,9 +45,22 @@ public class PlayerMovement : MonoBehaviour
         return new Vector2(x2, y2);
     }
 
+    private bool CheckForEnergy()
+    {
+        if(PartManager.Instance.GetPartCount("Energy") > 0)
+        {
+            return true;
+        }
+        return false;
+    }
+
     private void FixedUpdate()
     {
         CheckForGround();
+        if (usedSettings == spaceMoveSettings && !CheckForEnergy())
+        {
+            return;
+        }
         usedSettings.Move(rigidBody, RotateVector(InputManager.Instance.MovementInput));
     }
 }

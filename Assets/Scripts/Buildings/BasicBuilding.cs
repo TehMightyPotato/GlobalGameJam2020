@@ -11,6 +11,22 @@ public class BasicBuilding : ScriptableObject
     public Material material;
     public Cost[] cost;
     public BuildingType buildingType;
+
+    public virtual void Operate()
+    {
+
+    }
+
+    public virtual void Init(GameObject obj)
+    {
+
+    }
+
+    public virtual void OnBeforeDestroy()
+    {
+
+    }
+
 }
 
 [System.Serializable]
@@ -24,6 +40,9 @@ public struct Cost
 public enum BuildingType
 {
     Platform,
-    Machine
+    Production, 
+    Storage, 
+    Upgrade,
+    Required
 }
 

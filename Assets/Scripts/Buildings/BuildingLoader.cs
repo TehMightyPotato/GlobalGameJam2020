@@ -15,5 +15,16 @@ public class BuildingLoader : MonoBehaviour
         meshRenderer.material = buildingBlueprint.material;
         collider.sharedMesh = buildingBlueprint.mesh;
         this.buildingBlueprint = buildingBlueprint;
+        this.buildingBlueprint.Init(gameObject);
+    }
+
+    private void FixedUpdate()
+    {
+        buildingBlueprint.Operate();
+    }
+
+    private void OnDestroy()
+    {
+        buildingBlueprint.OnBeforeDestroy();
     }
 }

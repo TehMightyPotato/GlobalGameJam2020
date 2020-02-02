@@ -15,27 +15,59 @@ public class InputManager : Singleton<InputManager>
             return _movementInput;
         }
     }
+    private bool _ropeInput;
+    public bool RopeInput
+    {
+        get
+        {
+            return _ropeInput;
+        }
+    }
+    private bool _tractorBeamActive;
+    public bool TractorBeamActive
+    {
+        get
+        {
+            return _tractorBeamActive;
+        }
+    }
+    private Vector3 _mousePosition;
+    public Vector3 MousePosition
+    {
+        get
+        {
+            return _mousePosition;
+        }
+    }
 
     public InputState inputState;
 
     void Update()
     {
         _movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
+        _ropeInput = Input.GetButton("Jump");
+        if (Input.GetButton("Fire1") || Input.GetButtonDown("Fire2"))
+        {
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Physics.Raycast(ray, out var hitInfo, LayerMask.GetMask("BackgroundPlane"));
+            _mousePosition = hitInfo.point;
+        }
         switch (inputState)
         {
             case InputState.Building:
-                if(Input.GetButton("Fire1") && !EventSystem.current.IsPointerOverGameObject())
+                if (Input.GetButton("Fire1") && !EventSystem.current.IsPointerOverGameObject())
                 {
-                    var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                    Physics.Raycast(ray, out var hitInfo, LayerMask.GetMask("BackgroundPlane"));
-                    BuildingManager.Instance.Build(hitInfo.point);
+                    BuildingManager.Instance.Build(MousePosition);
+                }
+                if(Input.GetButtonDown("Fire2") && !EventSystem.current.IsPointerOverGameObject())
+                {
+                    BuildingManager.Instance.DestroyBuilding(MousePosition);
                 }
                 if (Input.GetButtonDown("BuildingMode"))
                     ChangeInputState(InputState.Playing);
                 break;
             case InputState.Playing:
-
+                _tractorBeamActive = Input.GetButton("Fire1");
                 if (Input.GetButtonDown("BuildingMode"))
                     ChangeInputState(InputState.Building);
                 break;
