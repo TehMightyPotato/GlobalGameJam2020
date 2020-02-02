@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class GridManager : MonoBehaviour
     private Grid grid;
     public GameObject prefab;
     public BasicBuilding blueprint;
+    public BasicBuilding solarPanelBlueprint;
 
     // Start is called before the first frame update
     void Start()
@@ -18,23 +20,25 @@ public class GridManager : MonoBehaviour
         PopulateGrid();
     }
 
-    private void Update()
-    {
-
-    }
-
     public void PopulateGrid()
     {
         for (int x = -1; x < 2; x++)
         {
             for (int y = -1; y < 2; y++)
             {
+                if (x == 0 && y == 0)
+                {
+                    PlaceBuilding(solarPanelBlueprint, new Vector2Int(x, y));
+                    grid.SetProtected(new Vector2Int(x, y));
+                    continue;
+                }
                 PlaceBuilding(blueprint, new Vector2Int(x, y));
+                grid.SetProtected(new Vector2Int(x, y));
             }
         }
     }
 
-    public void PlaceBuilding(BasicBuilding blueprint,Vector2Int position)
+    public void PlaceBuilding(BasicBuilding blueprint, Vector2Int position)
     {
         var cell = grid.GetCell(position);
         var obj = GameObject.Instantiate(prefab);
@@ -47,6 +51,22 @@ public class GridManager : MonoBehaviour
         var coords = grid.GetCellGridCoords(position);
         PlaceBuilding(blueprint, coords);
     }
+
+    public void DestroyBuilding(Vector2Int gridPosition)
+    {
+        if (grid.GetCell(gridPosition).unbreakable)
+        {
+            return;
+        }
+        grid.RemoveCell(gridPosition);
+    }
+
+    public void DestroyBuilding(Vector3 mousePosition)
+    {
+        var coords = grid.GetCellGridCoords(mousePosition);
+        DestroyBuilding(coords);
+    }
+
 
     public bool CellCheckPlaceablility(Vector2Int position)
     {

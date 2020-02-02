@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8eca0d406b6b6944bdf552f7647e808, type: 3}
+  m_Name: SolarPanel
+  m_EditorClassIdentifier: 
+  buildingName: Solar Panel
+  buildingIcon: {fileID: 21300000, guid: 6cb76cc76dbd84240befb28ab81c1436, type: 3}
+  mesh: {fileID: -4207443722817456029, guid: e7ab88490852263448a3ff46f8f4ea12, type: 3}
+  material: {fileID: 2100000, guid: 888d138cea0c9e6419c5bec18d70b3bb, type: 2}
+  cost: []
+  buildingType: 1
+  product: {fileID: 11400000, guid: 5fdfd6565bc8e8f4e9292c605f8a4c5e, type: 2}
+  productionRate: 10
+  productionTicks: 50

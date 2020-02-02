@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PartManager : Singleton<PartManager>
 {
+    public int maxEnergy;
+
     public EventHandler<PartsChangedArgs> OnPartsChanged;
     public void PartsChanged(object sender)
     {
@@ -13,11 +15,10 @@ public class PartManager : Singleton<PartManager>
     public Dictionary<string, BasicPart> partLookupDict;
     public Dictionary<string, int> inventory = new Dictionary<string, int>();
 
-
     private void Start()
     {
         partLookupDict = new Dictionary<string, BasicPart>();
-        foreach(var part in Resources.LoadAll<BasicPart>("Parts/"))
+        foreach (var part in Resources.LoadAll<BasicPart>("Parts/"))
         {
             partLookupDict.Add(part.partName, part);
         }
@@ -41,6 +42,10 @@ public class PartManager : Singleton<PartManager>
             inventory.Add(partName, 0);
         }
         inventory[partName] += ammount;
+        if (partName == "Energy" && GetPartCount(partName) > maxEnergy)
+        {
+            inventory[partName] = maxEnergy;
+        }
         PartsChanged(this);
     }
 
@@ -62,6 +67,16 @@ public class PartManager : Singleton<PartManager>
             }
         }
         return true;
+    }
+
+    public void RegisterEnergyStorage(int capacity)
+    {
+        maxEnergy += capacity;
+    }
+
+    public void DeregisterEnergyStorage(int capacity)
+    {
+        maxEnergy -= capacity;
     }
 }
 

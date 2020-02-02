@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: SpaceMoveSettings
   m_EditorClassIdentifier: 
   forceMultiplier: 0.07
+  energyUsage: 1

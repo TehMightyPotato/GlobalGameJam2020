@@ -5,6 +5,7 @@ using UnityEngine;
 public class Cell
 {
     public GameObject content;
+    public bool unbreakable;
     private Vector2Int _gridSpaceCoords;
     private Vector3 _worldSpaceCoords;
 
@@ -27,11 +28,17 @@ public class Cell
     {
         this._worldSpaceCoords = worldSpaceCoords;
         this._gridSpaceCoords = gridSpaceCoords;
+        this.unbreakable = false;
     }
 
     public void SetContent(GameObject content)
     {
         this.content = content;
         content.transform.position = WorldSpaceCoords;
+    }
+
+    public void SetProtected()
+    {
+        unbreakable = true;
     }
 }

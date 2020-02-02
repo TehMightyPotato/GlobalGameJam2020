@@ -13,6 +13,7 @@ public class StationMoveSettings : MoveSettings
 
     public override void Move(Rigidbody rb, Vector2 input)
     {
+
         rb.AddForce(new Vector3(input.x, 0, input.y).normalized * forceMultiplier, ForceMode.Impulse);
         if (rb.velocity.magnitude >= maxVelocity)
         {

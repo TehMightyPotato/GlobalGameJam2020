@@ -46,7 +46,7 @@ public class InputManager : Singleton<InputManager>
     {
         _movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         _ropeInput = Input.GetButton("Jump");
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") || Input.GetButtonDown("Fire2"))
         {
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Physics.Raycast(ray, out var hitInfo, LayerMask.GetMask("BackgroundPlane"));
@@ -58,6 +58,10 @@ public class InputManager : Singleton<InputManager>
                 if (Input.GetButton("Fire1") && !EventSystem.current.IsPointerOverGameObject())
                 {
                     BuildingManager.Instance.Build(MousePosition);
+                }
+                if(Input.GetButtonDown("Fire2") && !EventSystem.current.IsPointerOverGameObject())
+                {
+                    BuildingManager.Instance.DestroyBuilding(MousePosition);
                 }
                 if (Input.GetButtonDown("BuildingMode"))
                     ChangeInputState(InputState.Playing);

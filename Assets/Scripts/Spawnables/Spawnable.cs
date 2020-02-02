@@ -27,7 +27,7 @@ public class Spawnable : MonoBehaviour
 
     private void Update()
     {
-        if(maxDistanceFromZero > Vector3.Distance(transform.position, Vector3.zero))
+        if(maxDistanceFromZero < Vector3.Distance(transform.position, Vector3.zero))
         {
             sphere.RemoveObjectFromList(gameObject);
             Destroy(gameObject);

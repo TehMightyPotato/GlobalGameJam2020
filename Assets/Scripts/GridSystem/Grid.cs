@@ -26,6 +26,20 @@ public class Grid
         return gridDict[gridPos];
     }
 
+    public void RemoveCell(Vector2Int position)
+    {
+        if (gridDict.ContainsKey(position))
+        {
+            GameObject.Destroy(gridDict[position].content);
+            gridDict.Remove(position);
+        }
+    }
+
+    public void SetProtected(Vector2Int position)
+    {
+        gridDict[position].SetProtected();
+    }
+
     public bool CellHasContent(Vector2Int gridPos)
     {
         return GetCell(gridPos).content ? true : false;
