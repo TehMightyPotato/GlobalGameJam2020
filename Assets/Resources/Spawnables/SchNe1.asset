@@ -22,15 +22,21 @@ MonoBehaviour:
       ammount: 1
     - part: {fileID: 11400000, guid: a277377235df53e40b782f7b9de7f5a9, type: 2}
       ammount: 2
+    - part: {fileID: 11400000, guid: 9cf80e6bd4af10649b6e4d41a2ac3dc3, type: 2}
+      ammount: 1
   - chance: 63
     rewards:
     - part: {fileID: 11400000, guid: 175376d17c8701e4dbd8654e13183c5d, type: 2}
       ammount: 2
     - part: {fileID: 11400000, guid: a277377235df53e40b782f7b9de7f5a9, type: 2}
       ammount: 3
+    - part: {fileID: 11400000, guid: 9cf80e6bd4af10649b6e4d41a2ac3dc3, type: 2}
+      ammount: 2
   - chance: 25
     rewards:
     - part: {fileID: 11400000, guid: 175376d17c8701e4dbd8654e13183c5d, type: 2}
       ammount: 4
     - part: {fileID: 11400000, guid: a277377235df53e40b782f7b9de7f5a9, type: 2}
       ammount: 5
+    - part: {fileID: 11400000, guid: 9cf80e6bd4af10649b6e4d41a2ac3dc3, type: 2}
+      ammount: 3
