@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 726880748843962112}
   - component: {fileID: 726880748843962113}
   - component: {fileID: 2513652161813506380}
+  - component: {fileID: 716999551111415737}
   m_Layer: 5
   m_Name: BuildingMenuButton
   m_TagString: Untagged
@@ -166,6 +167,23 @@ MonoBehaviour:
   buildingBlueprint: {fileID: 0}
   buttonImage: {fileID: 494910885419070798}
   button: {fileID: 726880748843962112}
+  tooltip: {fileID: 716999551111415737}
+--- !u!114 &716999551111415737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726880748843962115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc112d53dd222fe4e8cf86df265d03b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partElementPrefab: {fileID: 7419795824722993834, guid: f7d181aef1fc34247916a1ae8da915b7,
+    type: 3}
+  tooltipManager: {fileID: 0}
+  blueprint: {fileID: 0}
 --- !u!1 &6417023809208671293
 GameObject:
   m_ObjectHideFlags: 0

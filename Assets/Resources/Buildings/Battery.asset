@@ -15,7 +15,7 @@ MonoBehaviour:
   buildingName: Battery
   buildingIcon: {fileID: 21300000, guid: 6cb76cc76dbd84240befb28ab81c1436, type: 3}
   mesh: {fileID: -4207443722817456029, guid: e7ab88490852263448a3ff46f8f4ea12, type: 3}
-  material: {fileID: 2100000, guid: 888d138cea0c9e6419c5bec18d70b3bb, type: 2}
+  material: {fileID: 2100000, guid: 174ab26c6d0c16446a2e427d4ceac10b, type: 2}
   cost: []
   buildingType: 2
   energyCapacity: 100

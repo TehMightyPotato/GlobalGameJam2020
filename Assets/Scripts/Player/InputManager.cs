@@ -64,7 +64,10 @@ public class InputManager : Singleton<InputManager>
                     BuildingManager.Instance.DestroyBuilding(MousePosition);
                 }
                 if (Input.GetButtonDown("BuildingMode"))
+                {
                     ChangeInputState(InputState.Playing);
+                    TooltipManager.Instance.PurgeList();
+                }
                 break;
             case InputState.Playing:
                 _tractorBeamActive = Input.GetButton("Fire1");

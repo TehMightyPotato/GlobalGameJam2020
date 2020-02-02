@@ -8,11 +8,13 @@ public class UIBuildingMenuButtonLoader : MonoBehaviour
     public BasicBuilding buildingBlueprint;
     public Image buttonImage;
     public Button button;
+    public UIBuildingButtonTooltip tooltip;
 
     public void Init(BasicBuilding building)
     {
         buildingBlueprint = building;
         buttonImage.sprite = building.buildingIcon;
+        tooltip.Init(building);
         PartManager.Instance.OnPartsChanged += OnPartsChanged;
     }
 
